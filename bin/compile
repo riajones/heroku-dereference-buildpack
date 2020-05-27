@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+SALT='yJAUpWpE8kR37zR'
+for link in $(find . -type l -print | cut -c3-); do
+  echo 'Dereferencing '$link
+  cp -LR $link $link-$SALT
+  mv $link-$SALT $link
+done
